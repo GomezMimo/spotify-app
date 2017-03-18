@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import ReactAudioPlayer from 'react-audio-player';
 import SearchBar from'./components/SearchBar.jsx';
 import AlbumImage from'./components/Album.jsx';
 const SPOTIFY_URL = "https://api.spotify.com/v1/search?q=";
@@ -39,8 +40,12 @@ class App extends React.Component {
 
     render() {
     	var renderAlbums = this.state.albums.map(function(item, index){
+    		{console.log(item)}
     		return(
-    			<AlbumImage className='myAlbum' key={index} source={item.images[0].url} />
+    			<div>
+	    			<AlbumImage className='myAlbum' key={index} source={item.images[0].url} />
+	    			<ReactAudioPlayer />
+	    		</div>
     		)
     	})
        return (
