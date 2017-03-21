@@ -1,0 +1,110 @@
+@import './commons';
+
+body {
+  background-color: #efefef;
+  margin-top: 50px;
+}
+
+.login {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 300px;
+  text-align: center;
+  .login-btn .spotify-btn {
+    .main {
+      fill: $accent-color;
+    }
+    &:hover .main {
+      fill: black;
+    }
+  }
+
+  .logo-spotify {
+    width: 200px;
+  }
+}
+
+.login-spotify {
+  background: url(../assets/images/log_in.svg);
+  width: 350px;
+  height: 64px;
+  display: block;
+  background-size: cover;
+  margin: auto;
+}
+
+.searchBar {
+  margin-top: 33px;
+}
+
+.user {
+  .user-content {
+    display: flex;
+    align-items: center;
+    img {
+      width: 200px;
+      height: 200px;
+    }
+    ul {
+      li {
+        display: flex;
+        padding: 3px 0px;
+        span:first-child {
+          width: 150px;
+          text-align: right;
+          margin-right: 20px;
+        }
+        span:last-child {
+          flex: 1;
+        }
+      }
+    }
+  }
+}
+
+.myAlbum{
+  display: inline-block;
+  height: 136px;
+  margin: 35px;
+  margin-bottom: 71px;
+  width: 204px;
+}
+
+.playList{
+  background: #fff;
+  display:none;
+  float: right;
+  height: 402px;
+  margin-top: 63px;
+  overflow: scroll;
+  width: 46%;
+}
+
+.playListTitle {
+  top: 60px;
+  bottom:0;
+  position:fixed;
+  overflow-y:scroll;
+  overflow-x:hidden;
+}
+
+.react-audio-player {
+  top: 542px;
+  bottom:0;
+  position:fixed;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  width: 36%;
+}
+
+.track-button {
+  background: none;
+  border: none;
+  color: #0275d8;  
+  margin: 0;
+  padding: 0;
+}
+
+.track-button:hover {  
+  color: #000;    
+}
