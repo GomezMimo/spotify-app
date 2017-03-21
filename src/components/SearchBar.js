@@ -91,7 +91,11 @@ class App extends React.Component {
            		<ol className=" playList list-group">
            			<h2 className="playListTitle">PlayList</h2>
            			{renderTracks}
-           			<ReactAudioPlayer className="audio-player" src={this.state.trackSelected}/>
+           			<ReactAudioPlayer 
+           				className="audio-player"
+           				src={this.state.trackSelected}
+           				autoplay 
+           			/>
            		</ol>           	
           </div>
        );
