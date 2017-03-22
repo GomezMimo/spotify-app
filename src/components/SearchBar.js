@@ -5,13 +5,6 @@ import ReactAudioPlayer from 'react-audio-player';
 const SPOTIFY_URL = "https://api.spotify.com/v1/search?q=";
 const SPOTIFY_TRACKS_URL = "https://api.spotify.com/v1/albums/";
 
-const initialState = {
-	searchRequest: '',
-	albums: [], 
-	tracks: [],
-	trackSelected: ''		
-}
-
 class App extends React.Component {
 	constructor(props){
 		super(props);		
@@ -67,9 +60,6 @@ class App extends React.Component {
 	}
 
 	resetSearchBar(){
-		console.log("We are here!");		
-		// $(e.target).parent().css("width", "43%");
-		// $(e.target).parent().siblings().css("display", "none");				
 		$('.go-back-albums').siblings().css("display", "inline-block");	
 		$('.myAlbum').css("width", "204px");		
 		$('.playList').css("display", "none");
