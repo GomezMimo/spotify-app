@@ -5,9 +5,16 @@ import ReactAudioPlayer from 'react-audio-player';
 const SPOTIFY_URL = "https://api.spotify.com/v1/search?q=";
 const SPOTIFY_TRACKS_URL = "https://api.spotify.com/v1/albums/";
 
+const initialState = {
+	searchRequest: '',
+	albums: [], 
+	tracks: [],
+	trackSelected: ''		
+}
+
 class App extends React.Component {
 	constructor(props){
-		super(props);
+		super(props);		
 		this.state = {
 			searchRequest: '',
 			albums: [], 
@@ -19,6 +26,7 @@ class App extends React.Component {
 		this.makeGroupOfAlbums = this.makeGroupOfAlbums.bind(this);
 		this.handleClickAlbum = this.handleClickAlbum.bind(this);
 		this.handleClickOnTrackSelected = this.handleClickOnTrackSelected.bind(this);
+		this.resetSearchBar = this.resetSearchBar.bind(this);
 	}
 	handleOnChange(e){
 		this.setState({
@@ -42,8 +50,7 @@ class App extends React.Component {
 		})
 	}
 
-	handleClickAlbum(artistId){	
-		console.log("entramos?");
+	handleClickAlbum(artistId){			
 		var that = this;
 		$.ajax(SPOTIFY_TRACKS_URL + artistId + '/tracks').done(function(response){
 			console.log(response.items)
@@ -57,6 +64,17 @@ class App extends React.Component {
 		this.setState({
 			trackSelected: track
 		})
+	}
+
+	resetSearchBar(){
+		console.log("We are here!");		
+		// $(e.target).parent().css("width", "43%");
+		// $(e.target).parent().siblings().css("display", "none");				
+		$('.go-back-albums').siblings().css("display", "inline-block");	
+		$('.myAlbum').css("width", "204px");		
+		$('.playList').css("display", "none");
+		$('.go-back-albums').css("display", "none");	
+
 	}
 
     render() {
@@ -92,11 +110,13 @@ class App extends React.Component {
            			<h2 className="playListTitle">PlayList</h2>
            			{renderTracks}
            			<ReactAudioPlayer 
-           				className="audio-player"
            				src={this.state.trackSelected}
            				autoplay 
-           			/>
-           		</ol>           	
+           			/>           			       			
+           		</ol>
+           		<div className="go-back-albums">
+           			<a onClick={this.resetSearchBar}>Go back to albums</a>           	
+           		</div>
           </div>
        );
     }

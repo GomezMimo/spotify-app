@@ -8,9 +8,10 @@ export default class Album extends React.Component{
 	}
 	handleClickImage(e){
 		this.props.onClick(this.props.itemId);
-		$(e.target).parent().css("width", "43%");
+		$(e.target).parent().css("width", "39%");
 		$(e.target).parent().siblings().css("display", "none");		
 		$('.playList').css("display", "block");		
+		$('.go-back-albums').css("display", "block");				
 	}
 	render(){
 		return(

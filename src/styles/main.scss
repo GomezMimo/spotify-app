@@ -108,3 +108,10 @@ body {
 .track-button:hover {  
   color: #000;    
 }
+
+.go-back-albums {
+  cursor: pointer;  
+  display: none;
+  font-size: 21px;
+  margin: 245px 0 0 60px;
+}
